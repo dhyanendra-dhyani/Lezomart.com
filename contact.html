@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Lezomart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* ==================== VARIABLES ==================== */
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --dark-color: #2d3436;
+            --light-color: #f8f9fa;
+            --text-color: #2d3436;
+            --border-color: #dfe6e9;
+            --success-color: #00b894;
+            --warning-color: #fdcb6e;
+            --danger-color: #d63031;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-lg: 0 5px 20px rgba(0,0,0,0.15);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+        }
+
+        /* ==================== RESET ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        /* ==================== UTILITY ==================== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        /* ==================== NOTIFICATION BAR ==================== */
+        .notification-bar {
+            background: var(--dark-color);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* ==================== HEADER ==================== */
+        .header {
+            background: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            gap: 30px;
+        }
+
+        .logo {
+            cursor: pointer;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 600px;
+            display: flex;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+            font-size: 1rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .search-btn {
+            padding: 12px 25px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 20px;
+        }
+
+        .icon-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            position: relative;
+            padding: 8px;
+            border-radius: var(--border-radius);
+        }
+
+        .icon-btn:hover {
+            background: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        .icon-btn i {
+            font-size: 1.5rem;
+        }
+
+        .icon-btn span {
+            font-size: 0.8rem;
+        }
+
+        .badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--danger-color);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            padding: 10px;
+        }
+
+        /* ==================== BREADCRUMB ==================== */
+        .breadcrumb {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .breadcrumb-list {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-list a {
+            color: #636e72;
+        }
+
+        .breadcrumb-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .breadcrumb-list span {
+            color: var(--dark-color);
+            font-weight: 600;
+        }
+
+        /* ==================== PAGE HEADER ==================== */
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '📞';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.05;
+            top: -50px;
+            right: -50px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .page-header p {
+            font-size: 1.5rem;
+            opacity: 0.95;
+        }
+
+        /* ==================== CONTACT SECTION ==================== */
+        .contact-section {
+            padding: 80px 0;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        /* ==================== CONTACT INFO ==================== */
+        .contact-info {
+            background: white;
+            padding: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .contact-info-text {
+            font-size: 1.1rem;
+            color: #636e72;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .info-cards {
+            display: grid;
+            gap: 25px;
+        }
+
+        .info-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 25px;
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .info-card:hover {
+            background: white;
+            border-color: var(--primary-color);
+            transform: translateX(10px);
+            box-shadow: var(--shadow);
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .info-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+        }
+
+        .info-content p {
+            color: #636e72;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .info-content a {
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .info-content a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .phone-number {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .working-hours {
+            margin-top: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: var(--border-radius);
+            color: white;
+        }
+
+        .working-hours h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .working-hours ul {
+            display: grid;
+            gap: 10px;
+        }
+
+        .working-hours li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .working-hours li:last-child {
+            border-bottom: none;
+        }
+
+        /* ==================== CONTACT FORM ==================== */
+        .contact-form-container {
+            background: white;
+            padding: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-form-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .form-intro {
+            font-size: 1.1rem;
+            color: #636e72;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark-color);
+            font-size: 1rem;
+        }
+
+        .form-label .required {
+            color: var(--danger-color);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .form-grid .form-group {
+            margin-bottom: 0;
+        }
+
+        .submit-status {
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            display: none;
+            font-weight: 600;
+        }
+
+        .submit-status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .submit-status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        /* ==================== QUICK CONTACT ==================== */
+        .quick-contact-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .quick-contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .quick-contact-card {
+            background: var(--light-color);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .quick-contact-card:hover {
+            background: white;
+            border-color: var(--primary-color);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .quick-contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .quick-contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .quick-contact-card p {
+            color: #636e72;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .quick-contact-card .btn {
+            font-size: 0.95rem;
+        }
+
+        /* ==================== FAQ SECTION ==================== */
+        .faq-section {
+            padding: 80px 0;
+            background: var(--light-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #636e72;
+            margin-bottom: 50px;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 25px 30px;
+            background: white;
+            text-align: left;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .faq-item.active .faq-question {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer-content {
+            padding: 25px 30px;
+            color: #636e72;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        /* ==================== MAP SECTION ==================== */
+        .map-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .map-container {
+            margin-top: 40px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 500px;
+            background: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            padding: 40px;
+            color: #636e72;
+        }
+
+        .map-placeholder i {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .map-placeholder h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        /* ==================== SCROLL TO TOP ==================== */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--dark-color);
+            transform: translateY(-5px);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .search-container {
+                order: 3;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-info,
+            .contact-form-container {
+                padding: 30px 20px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .icon-btn span:not(.badge) {
+                display: none;
+            }
+
+            .quick-contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .contact-info h2,
+            .contact-form-container h2,
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Notification Bar -->
+    <div class="notification-bar">
+        <p><i class="fas fa-phone-alt"></i> Need Help? Call Us: <strong>+91 70707 03978</strong></p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo" onclick="window.location.href='index.html'">
+                    <h1><i class="fas fa-shopping-bag"></i> Lezomart</h1>
+                </div>
+
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search products...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <div class="header-actions">
+                    <button class="icon-btn" onclick="window.location.href='account.html'">
+                        <i class="fas fa-user"></i>
+                        <span>Account</span>
+                    </button>
+                    <button class="icon-btn" onclick="window.location.href='wishlist.html'">
+                        <i class="fas fa-heart"></i>
+                        <span>Wishlist</span>
+                        <span class="badge" id="wishlistCount">0</span>
+                    </button>
+                    <button class="icon-btn" onclick="window.location.href='index.html'">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                        <span class="badge" id="cartCount">0</span>
+                    </button>
+                </div>
+
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-list">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Contact Us</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1>Get In Touch</h1>
+                <p>We're here to help and answer any question you might have</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-layout">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <p class="contact-info-text">
+                        Have a question or need assistance? Our friendly customer support team is ready to help you. Reach out to us through any of the following channels.
+                    </p>
+
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Phone Number</h3>
+                                <p>Call us directly for immediate assistance</p>
+                                <a href="tel:+917070703978" class="phone-number">+91 70707 03978</a>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Email Address</h3>
+                                <p>Send us an email anytime</p>
+                                <a href="mailto:support@lezomart.com">support@lezomart.com</a><br>
+                                <a href="mailto:info@lezomart.com">info@lezomart.com</a>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Office Address</h3>
+                                <p>Visit our headquarters</p>
+                                <p>Lezomart Headquarters<br>
+                                Mumbai, Maharashtra<br>
+                                India - 400001</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>WhatsApp Support</h3>
+                                <p>Chat with us on WhatsApp</p>
+                                <a href="https://wa.me/917070703978" target="_blank">+91 70707 03978</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="working-hours">
+                        <h3><i class="fas fa-clock"></i> Working Hours</h3>
+                        <ul>
+                            <li>
+                                <span>Monday - Friday</span>
+                                <strong>9:00 AM - 8:00 PM</strong>
+                            </li>
+                            <li>
+                                <span>Saturday</span>
+                                <strong>9:00 AM - 6:00 PM</strong>
+                            </li>
+                            <li>
+                                <span>Sunday</span>
+                                <strong>10:00 AM - 4:00 PM</strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2>Send Us a Message</h2>
+                    <p class="form-intro">
+                        Fill out the form below and we'll get back to you as soon as possible.
+                    </p>
+
+                    <div class="submit-status" id="submitStatus"></div>
+
+                    <form id="contactForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">First Name <span class="required">*</span></label>
+                                <input type="text" class="form-input" name="firstName" required placeholder="John">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Last Name <span class="required">*</span></label>
+                                <input type="text" class="form-input" name="lastName" required placeholder="Doe">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email Address <span class="required">*</span></label>
+                            <input type="email" class="form-input" name="email" required placeholder="john.doe@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Phone Number <span class="required">*</span></label>
+                            <input type="tel" class="form-input" name="phone" required placeholder="+91 98765 43210">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Subject <span class="required">*</span></label>
+                            <select class="form-select" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="order">Order Related</option>
+                                <option value="product">Product Question</option>
+                                <option value="shipping">Shipping & Delivery</option>
+                                <option value="return">Return & Refund</option>
+                                <option value="payment">Payment Issue</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Message <span class="required">*</span></label>
+                            <textarea class="form-textarea" name="message" required placeholder="Please describe your inquiry in detail..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact Section -->
+    <section class="quick-contact-section">
+        <div class="container">
+            <h2 class="section-title">Quick Contact Options</h2>
+            <p class="section-subtitle">Choose your preferred way to reach us</p>
+
+            <div class="quick-contact-grid">
+                <div class="quick-contact-card">
+                    <div class="quick-contact-icon">
+                        <i class="fas fa-phone-volume"></i>
+                    </div>
+                    <h3>Call Us Now</h3>
+                    <p>Speak directly with our customer service team for immediate assistance</p>
+                    <a href="tel:+917070703978" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> +91 70707 03978
+                    </a>
+                </div>
+
+                <div class="quick-contact-card">
+                    <div class="quick-contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp Chat</h3>
+                    <p>Get quick responses through our WhatsApp support channel</p>
+                    <a href="https://wa.me/917070703978" target="_blank" class="btn btn-primary" style="background: #25D366;">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
+
+                <div class="quick-contact-card">
+                    <div class="quick-contact-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <h3>Email Support</h3>
+                    <p>Send us a detailed email and we'll respond within 24 hours</p>
+                    <a href="mailto:support@lezomart.com" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Email Us
+                    </a>
+                </div>
+
+                <div class="quick-contact-card">
+                    <div class="quick-contact-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Live Chat</h3>
+                    <p>Chat with our support team in real-time for instant help</p>
+                    <button class="btn btn-primary" onclick="alert('Live chat feature coming soon!')">
+                        <i class="fas fa-comment-dots"></i> Start Live Chat
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Find quick answers to common questions</p>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What are your customer service hours?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Our customer service team is available Monday to Friday from 9:00 AM to 8:00 PM, Saturday from 9:00 AM to 6:00 PM, and Sunday from 10:00 AM to 4:00 PM (IST). You can reach us via phone at +91 70707 03978 or email us anytime at support@lezomart.com.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How long does it take to get a response?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We strive to respond to all inquiries as quickly as possible. Phone calls are answered immediately during business hours. Emails are typically responded to within 24 hours. For urgent matters, we recommend calling our customer service line at +91 70707 03978.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I track my order status through customer service?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Yes! Our customer service team can help you track your order. Simply provide your order number when you contact us. You can also track your order online by logging into your account on our website.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you offer support in multiple languages?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Currently, we provide customer support in English and Hindi. We're working on expanding our language support to better serve our diverse customer base across India.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How can I provide feedback about my experience?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We value your feedback! You can share your experience by filling out the contact form on this page and selecting "Feedback" as the subject, calling us at +91 70707 03978, or emailing us at feedback@lezomart.com. Your input helps us improve our services.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is there a phone number for international customers?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Currently, we primarily serve customers within India. International customers can reach us via email at support@lezomart.com. We're working on expanding our services internationally and will provide dedicated international support lines in the future.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title">Visit Our Office</h2>
+            <p class="section-subtitle">Find us on the map</p>
+
+            <div class="map-container">
+                <!-- To add Google Maps, replace this placeholder with iframe -->
+                <!-- <iframe src="YOUR_GOOGLE_MAPS_EMBED_URL" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Map Location</h3>
+                    <p>Lezomart Headquarters, Mumbai, Maharashtra, India</p>
+                    <button class="btn btn-primary" onclick="window.open('https://www.google.com/maps', '_blank')">
+                        <i class="fas fa-directions"></i> Get Directions
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // ==================== INITIALIZATION ====================
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCounts();
+            setupContactForm();
+            setupFAQ();
+            setupScrollTop();
+        });
+
+        // ==================== LOAD COUNTS ====================
+        function loadCounts() {
+            const cart = JSON.parse(localStorage.getItem('lezomart_cart') || '[]');
+            const wishlist = JSON.parse(localStorage.getItem('lezomart_wishlist') || '[]');
+            
+            const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = cartCount;
+            document.getElementById('wishlistCount').textContent = wishlist.length;
+        }
+
+        // ==================== CONTACT FORM ====================
+        function setupContactForm() {
+            const form = document.getElementById('contactForm');
+            const statusDiv = document.getElementById('submitStatus');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+                
+                // Show loading state
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+
+                // Simulate form submission (replace with actual API call)
+                setTimeout(() => {
+                    // Success
+                    statusDiv.className = 'submit-status success';
+                    statusDiv.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.';
+                    
+                    // Reset form
+                    form.reset();
+                    
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        statusDiv.style.display = 'none';
+                    }, 5000);
+                    
+                    // Log to console (for demo purposes)
+                    console.log('Form submitted:', data);
+                }, 2000);
+            });
+        }
+
+        // ==================== FAQ ACCORDION ====================
+        function setupFAQ() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        }
+
+        // ==================== SCROLL TO TOP ====================
+        function setupScrollTop() {
+            const scrollTopBtn = document.getElementById('scrollTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollTopBtn.classList.add('active');
+                } else {
+                    scrollTopBtn.classList.remove('active');
+                }
+            });
+            
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    </script>
+</body>
+</html>

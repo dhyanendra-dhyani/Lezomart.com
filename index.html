@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lezomart - Your Premier Online Shopping Destination">
+    <title>Lezomart.com - Shop Smart, Live Better</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Notification Bar -->
+    <div class="notification-bar">
+        <p><i class="fas fa-shipping-fast"></i> Free Shipping on Orders Over $50 | 30-Day Money Back Guarantee</p>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <h1><i class="fas fa-shopping-bag"></i> Lezomart</h1>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search for products, brands and more...">
+                    <button class="search-btn" onclick="performSearch()"><i class="fas fa-search"></i></button>
+                </div>
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <button class="icon-btn" id="accountBtn" onclick="navigateTo('account.html')">
+                        <i class="fas fa-user"></i>
+                        <span>Account</span>
+                    </button>
+                    <button class="icon-btn" id="wishlistBtn" onclick="navigateTo('wishlist.html')">
+                        <i class="fas fa-heart"></i>
+                        <span>Wishlist</span>
+                        <span class="badge" id="wishlistCount">0</span>
+                    </button>
+                    <button class="icon-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                        <span class="badge" id="cartCount">0</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="dropdown">
+                        <a href="#"><i class="fas fa-th-large"></i> Categories <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="category.html?cat=fashion"><i class="fas fa-tshirt"></i> Fashion</a>
+                            <a href="category.html?cat=electronics"><i class="fas fa-laptop"></i> Electronics</a>
+                            <a href="category.html?cat=home"><i class="fas fa-home"></i> Home & Living</a>
+                            <a href="category.html?cat=beauty"><i class="fas fa-heartbeat"></i> Health & Beauty</a>
+                            <a href="category.html?cat=sports"><i class="fas fa-futbol"></i> Sports</a>
+                            <a href="category.html?cat=books"><i class="fas fa-book"></i> Books</a>
+                        </div>
+                    </li>
+                    <li><a href="deals.html"><i class="fas fa-fire"></i> Hot Deals</a></li>
+                    <li><a href="new-arrivals.html"><i class="fas fa-star"></i> New Arrivals</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="contact.html"><i class="fas fa-phone"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Slider -->
+    <section class="hero-slider">
+        <div class="slider-container">
+            <div class="slide active" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <div class="slide-content">
+                    <h2 class="slide-title">Winter Collection 2025</h2>
+                    <p class="slide-description">Up to 50% Off on All Fashion Items</p>
+                    <button class="btn btn-primary" onclick="navigateTo('category.html?cat=fashion')">Shop Now</button>
+                </div>
+            </div>
+            <div class="slide" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <div class="slide-content">
+                    <h2 class="slide-title">Electronics Mega Sale</h2>
+                    <p class="slide-description">Latest Gadgets at Unbeatable Prices</p>
+                    <button class="btn btn-primary" onclick="navigateTo('category.html?cat=electronics')">Explore Deals</button>
+                </div>
+            </div>
+            <div class="slide" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                <div class="slide-content">
+                    <h2 class="slide-title">Home Essentials</h2>
+                    <p class="slide-description">Transform Your Space with Style</p>
+                    <button class="btn btn-primary" onclick="navigateTo('category.html?cat=home')">View Collection</button>
+                </div>
+            </div>
+        </div>
+        <button class="slider-btn prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-btn next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+        <div class="slider-dots" id="sliderDots"></div>
+    </section>
+
+    <!-- Category Grid -->
+    <section class="category-section">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="navigateTo('category.html?cat=fashion')">
+                    <div class="category-icon"><i class="fas fa-tshirt"></i></div>
+                    <h3>Fashion</h3>
+                    <p>Trendy Styles</p>
+                </div>
+                <div class="category-card" onclick="navigateTo('category.html?cat=electronics')">
+                    <div class="category-icon"><i class="fas fa-laptop"></i></div>
+                    <h3>Electronics</h3>
+                    <p>Latest Tech</p>
+                </div>
+                <div class="category-card" onclick="navigateTo('category.html?cat=home')">
+                    <div class="category-icon"><i class="fas fa-couch"></i></div>
+                    <h3>Home & Living</h3>
+                    <p>Comfort Zone</p>
+                </div>
+                <div class="category-card" onclick="navigateTo('category.html?cat=beauty')">
+                    <div class="category-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3>Health & Beauty</h3>
+                    <p>Self Care</p>
+                </div>
+                <div class="category-card" onclick="navigateTo('category.html?cat=sports')">
+                    <div class="category-icon"><i class="fas fa-futbol"></i></div>
+                    <h3>Sports</h3>
+                    <p>Active Life</p>
+                </div>
+                <div class="category-card" onclick="navigateTo('category.html?cat=kids')">
+                    <div class="category-icon"><i class="fas fa-baby"></i></div>
+                    <h3>Kids</h3>
+                    <p>Little Ones</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Products</h2>
+                <div class="filter-tabs">
+                    <button class="tab-btn active" data-filter="all">All</button>
+                    <button class="tab-btn" data-filter="trending">Trending</button>
+                    <button class="tab-btn" data-filter="new">New</button>
+                    <button class="tab-btn" data-filter="sale">On Sale</button>
+                </div>
+            </div>
+
+            <div class="products-grid" id="productsGrid"></div>
+
+            <div class="load-more-container">
+                <button class="btn btn-secondary" id="loadMoreBtn">Load More Products</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+<section class="founder-section">
+    <div class="container">
+        <h2 class="section-title">Meet Our Founder</h2>
+        <div class="founder-content">
+            <div class="founder-image-container">
+                <div class="founder-image">
+                    <img 
+                        src="raushan.jpeg" 
+                        alt="Raushan Kumar"
+                        onload="this.style.display='block'; this.nextElementSibling.style.display='none';"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        style="display:none;"
+                    >
+                    <div class="founder-placeholder">
+                        <i class="fas fa-user-tie"></i>
+                        <p class="upload-text">Upload founder photo</p>
+                    </div>
+                </div>
+
+                <div class="founder-badge">
+                    <i class="fas fa-award"></i>
+                    <span>Founder & Director</span>
+                </div>
+            </div>
+
+            <div class="founder-details">
+                <h3>Raushan Kumar</h3>
+                <p class="founder-title">Founder & Director</p>
+
+                <div class="founder-description">
+                    <p>With a vision to revolutionize online shopping in India, Raushan Kumar founded Lezomart in 2024.</p>
+
+                    <blockquote class="founder-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Our mission is simple: to make online shopping accessible, affordable, and enjoyable for everyone."</p>
+                        <cite>- Raushan Kumar</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Features Banner -->
+    <section class="features-banner">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>Free Shipping</h3>
+                    <p>On orders over $50</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-undo"></i>
+                    <h3>Easy Returns</h3>
+                    <p>30-day return policy</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-lock"></i>
+                    <h3>Secure Payment</h3>
+                    <p>100% secure transactions</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated customer service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Get exclusive deals and updates delivered to your inbox</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3><i class="fas fa-shopping-bag"></i> Lezomart</h3>
+                    <p>Your trusted online shopping destination for quality products at unbeatable prices.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="category.html">All Products</a></li>
+                        <li><a href="category.html">Categories</a></li>
+                        <li><a href="deals.html">Hot Deals</a></li>
+                        <li><a href="new-arrivals.html">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="track-order.html">Track Order</a></li>
+                        <li><a href="shipping.html">Shipping Info</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lezomart.com. All rights reserved. Founded by Raushan Kumar.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-amex"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-btn" id="closeCart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn btn-primary btn-block" onclick="navigateTo('checkout.html')">Proceed to Checkout</button>
+            <button class="btn btn-secondary btn-block" onclick="closeCart()">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
